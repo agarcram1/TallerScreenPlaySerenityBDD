@@ -14,5 +14,7 @@ public class PaginaLogin extends PageObject {
     public static final Target BOTON_LOGIN = Target.the("Boton para iniciar sesion")
             .locatedBy("//input[@id='login-button']");
 
+    public static final Target MENSAJE_ERROR = Target.the("Mensaje de error")
+            .locatedBy("//h3[@data-test='error']");
 
 }

@@ -4,6 +4,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
+import userinterface.PaginaCarrito;
 import userinterface.PaginaProductos;
 
 public class OrdenarProductos implements Task {
@@ -14,17 +15,16 @@ public class OrdenarProductos implements Task {
         this.criterio = criterio;
     }
 
-    public static OrdenarProductos porCriterio(String criterio) {
-        return Tasks.instrumented(OrdenarProductos.class, criterio);
-    }
-
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(PaginaProductos.ORDENAR_PRODUCTOS),
-                Click.on(PaginaProductos.opciondeOrden(criterio))
+                Click.on(PaginaProductos.opcionDeOrden(criterio))
         );
-
-
     }
+
+    public static OrdenarProductos porCriterio(String criterio) {
+        return Tasks.instrumented(OrdenarProductos.class, criterio);
+    }
+
 }

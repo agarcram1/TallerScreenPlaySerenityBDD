@@ -14,7 +14,4 @@ public class InicioSesionVisible implements Question<Boolean> {
         return PRODUCT_LABEL.resolveFor(actor).isVisible();
     }
 
-    public static InicioSesionVisible enLaPaginaDeProductos() {
-        return new InicioSesionVisible();
-    }
 }

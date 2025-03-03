@@ -14,16 +14,15 @@ public class AgregarProductoAlCarrito implements Task {
         this.producto = producto;
     }
 
-    public static AgregarProductoAlCarrito conNombre(String producto) {
-        return Tasks.instrumented(AgregarProductoAlCarrito.class, producto);
-    }
-
-
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Click.on(PaginaProductos.NOMBRE_PRODUCTO),
-                Click.on(PaginaProductos.BOTON_AGREGAR_CARRITO));
+                Click.on(PaginaProductos.BOTON_AGREGAR_CARRITO_POR_NOMBRE(producto))
+        );
+    }
+
+    public static AgregarProductoAlCarrito conNombre(String producto) {
+        return Tasks.instrumented(AgregarProductoAlCarrito.class, producto);
     }
 }

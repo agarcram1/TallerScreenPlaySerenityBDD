@@ -1,6 +1,5 @@
 package runners;
 
-
 import org.junit.platform.suite.api.ConfigurationParameter;
 import org.junit.platform.suite.api.IncludeEngines;
 import org.junit.platform.suite.api.SelectClasspathResource;
@@ -11,9 +10,8 @@ import static io.cucumber.core.options.Constants.PLUGIN_PROPERTY_NAME;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("features")
+@SelectClasspathResource("features/IniciarSesionOrdenarProductos.feature")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "stepdefinitions")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value  = "io.cucumber.core.plugin.SerenityReporterParallel, pretty, timeline:build/test-results/timeline")
-
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-reports.html")
 public class OrdenarProductosRunners {
 }
