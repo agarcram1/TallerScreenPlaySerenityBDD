@@ -19,7 +19,7 @@ public class AbrirNavegador implements Task {
         actor.attemptsTo(Open.url(url));
     }
 
-    public static AbrirNavegador en(String url) {
+    public static AbrirNavegador abrirurl(String url) {
         return Tasks.instrumented(AbrirNavegador.class, url);
     }
 }

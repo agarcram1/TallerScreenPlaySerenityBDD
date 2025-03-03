@@ -1,13 +1,21 @@
 package stepdefinitions;
 
+import hook.AbrirNavegador;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
+import net.serenitybdd.screenplay.actors.OnStage;
+
+import static constantes.Constantes.ACTOR;
+import static constantes.Constantes.WEB_URL;
 
 public class LoginYOrdenarProductosStep {
     @Dado("un usuario iniciado sesion en la aplicacion swaglabs")
     public void usuarioHaIniciadosesion() {
+        OnStage.theActorCalled(ACTOR).attemptsTo(
+                AbrirNavegador.abrirurl(WEB_URL)
+        );
     }
 
     @Cuando("el usuario ordena los productos por precio de menor a mayor")
@@ -24,5 +32,7 @@ public class LoginYOrdenarProductosStep {
 
     @Entonces("el verifica que el pedido se puede realizar correctamente")
     public void verificaPedidoRealizable() {
+
+
     }
 }
