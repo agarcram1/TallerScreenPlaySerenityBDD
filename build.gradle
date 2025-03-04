@@ -1,8 +1,10 @@
 defaultTasks 'clean', 'test', 'aggregate'
+
 repositories {
     mavenCentral()
     mavenLocal()
 }
+
 buildscript {
     repositories {
         maven {
@@ -14,10 +16,12 @@ buildscript {
     }
 }
 
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: "net.serenity-bdd.serenity-gradle-plugin"
+
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
@@ -34,21 +38,22 @@ ext {
     logback_classic_version="1.2.10"
     assertj_core_version="3.23.1"
 }
+
 dependencies {
- dependencies {
-    testImplementation "net.serenity-bdd:serenity-core:${serenity_version}"
-    testImplementation "net.serenity-bdd:serenity-cucumber:${serenity_version}"
-    testImplementation "net.serenity-bdd:serenity-screenplay:${serenity_version}"
-    testImplementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenity_version}"
-    testImplementation "net.serenity-bdd:serenity-ensure:${serenity_version}"
-    testImplementation "net.serenity-bdd:serenity-junit5:${serenity_version}"
-    testImplementation "org.junit.platform:junit-platform-launcher:${junit_platform_launcher_version}"
-    testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumber_junit_platform_engine_version}"
-    testImplementation "org.junit.platform:junit-platform-suite:${junit_platform_suite_version}"
-    testImplementation "org.junit.jupiter:junit-jupiter-engine:${junit_jupiter_engine_version}"
-    testImplementation "org.junit.vintage:junit-vintage-engine:${junit_vintage_engine_version}"
-    implementation "ch.qos.logback:logback-classic:${logback_classic_version}"
-    testImplementation "org.assertj:assertj-core:${assertj_core_version}"
+    dependencies {
+        testImplementation "net.serenity-bdd:serenity-core:${serenity_version}"
+        testImplementation "net.serenity-bdd:serenity-cucumber:${serenity_version}"
+        testImplementation "net.serenity-bdd:serenity-screenplay:${serenity_version}"
+        testImplementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenity_version}"
+        testImplementation "net.serenity-bdd:serenity-ensure:${serenity_version}"
+        testImplementation "net.serenity-bdd:serenity-junit5:${serenity_version}"
+        testImplementation "org.junit.platform:junit-platform-launcher:${junit_platform_launcher_version}"
+        testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumber_junit_platform_engine_version}"
+        testImplementation "org.junit.platform:junit-platform-suite:${junit_platform_suite_version}"
+        testImplementation "org.junit.jupiter:junit-jupiter-engine:${junit_jupiter_engine_version}"
+        testImplementation "org.junit.vintage:junit-vintage-engine:${junit_vintage_engine_version}"
+        implementation "ch.qos.logback:logback-classic:${logback_classic_version}"
+        testImplementation "org.assertj:assertj-core:${assertj_core_version}"
     }
 }
 
@@ -57,5 +62,8 @@ test {
     testLogging.showStandardStreams = true
 }
 
+
+
 gradle.startParameter.continueOnFailure = true
+
 test.finalizedBy(aggregate)

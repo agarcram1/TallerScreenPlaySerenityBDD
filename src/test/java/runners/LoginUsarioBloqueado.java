@@ -10,9 +10,8 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("features/IniciarSesionOrdenarProductos.feature")
+@SelectClasspathResource("features/usuario_bloqueado.feature")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "stepdefinitions")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-reports.html")
-public class OrdenarProductosRunners {
-
+public class LoginUsarioBloqueado {
 }

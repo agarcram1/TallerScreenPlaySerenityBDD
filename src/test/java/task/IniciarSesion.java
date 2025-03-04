@@ -19,7 +19,7 @@ public class IniciarSesion implements Task {
     }
 
     @Override
-    @Step("{0} inicia sesion en la aplicacion con el usuario #standard_user y la contrasena #secret_sauce")
+    @Step("{0} inicia sesion en la aplicacion con el usuario #usuario y la contrasena #contrasena")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Clear.field(userinterface.PaginaLogin.CAJA_USERNAME),
